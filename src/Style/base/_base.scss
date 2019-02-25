@@ -13,16 +13,16 @@ html{
     font-size: 62.5%;
 
     @include respond(lg-desktop){
-        font-size: 62.5%;
-    }
-    @include respond(lg-tab){
         font-size: 52.5%;
     }
-    @include respond(lg-phone){
+    @include respond(lg-tab){
         font-size: 42.5%;
     }
-    @include respond(sm-phone){
+    @include respond(lg-phone){
         font-size: 32.5%;
+    }
+    @include respond(sm-phone){
+        font-size: 25.5%;
     }
 }
 
