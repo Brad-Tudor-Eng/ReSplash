@@ -13,7 +13,20 @@
     color: white;
 
 & div{
-    width: 50%;
+    width: 50%;    
+    
+    @include respond(lg-desktop){
+        width: 50%;
+    }
+    @include respond(lg-tab){
+        width: 60%;
+    }
+    @include respond(lg-phone){
+        width: 75%;
+    }
+    @include respond(sm-phone){
+        width: 90%;
+    }
 }
 
     &_input{
