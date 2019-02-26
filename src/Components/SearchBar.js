@@ -28,7 +28,7 @@ const SearchBar = ({onSubmit}) => {
                     value={text}
                     onChange={(e)=>{setText(e.target.value)}}
                 />
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
                 <h6>This site is a clone of unsplash.com
                 all images are brought to you though the unsplash api</h6>
             </div>

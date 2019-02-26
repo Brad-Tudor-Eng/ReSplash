@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 import ImageCard from './ImageCard'
+
 
 const ImageList = ({images}) => {
 
