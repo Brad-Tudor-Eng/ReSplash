@@ -1,14 +1,25 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from '../api/unsplash'
 
 import ImageList from './ImageList';
 import SearchBar from './SearchBar';
-import Spinner from './Spinner'
+import Spinner from './Spinner';
 
 const App = () => {
 
   const [images, setImages] = useState([])
   const [loading, setLoading] = useState(false)
+
+  useEffect(()=>{
+    initalLoad()
+  },[])
+
+const initalLoad = async () => {
+  const terms = ['city', 'sunset', 'stars', 'mountians', 'beach', 'nature']
+  const index = Math.floor(Math.random()*5)
+  onSearchSubmit(terms[index])
+}
+
 
 const onSearchSubmit= async (term)=>{
   setImages([])
