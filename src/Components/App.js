@@ -1,14 +1,18 @@
 import React, { useState, useEffect} from 'react';
 import axios from '../api/unsplash'
 
-import ImageList from './ImageList';
-import SearchBar from './SearchBar';
-import Spinner from './Spinner';
+import ImageList from './ImageList'
+import ImageView from './ImageView'
+import SearchBar from './SearchBar'
+import Spinner from './Spinner'
 
 const App = () => {
 
   const [images, setImages] = useState([])
   const [loading, setLoading] = useState(false)
+  const [link, setLink] = useState('')
+  const [description, setDescription] = useState('')
+  const [open, setOpen] = useState(false)
 
   useEffect(()=>{
     initalLoad()
@@ -41,11 +45,23 @@ const renderSpinner = () => {
   }
 }
 
+const renderImageView = () => {
+  if(open){
+    return <ImageView link={link} description={description} setOpen={setOpen}/>
+  }
+}
+
   return (
     <div className="App">
       <SearchBar onSubmit={onSearchSubmit}/>
+        {renderImageView()}
         {renderSpinner()}
-      <ImageList images={images} loading={loading}/>
+      <ImageList 
+        images={images} 
+        loading={loading} 
+        setLink={setLink} 
+        setDescription={setDescription} 
+        setOpen={setOpen}/>
     </div>
   )
 }
